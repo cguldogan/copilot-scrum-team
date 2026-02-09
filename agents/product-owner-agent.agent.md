@@ -9,6 +9,10 @@ handoffs:
     agent: scrum-master-agent
     prompt: Updated priorities, acceptance criteria clarifications, and acceptance decisions are ready. Please update sprint plan and coordinate execution.
     send: true
+  - label: Request Requirements Analysis
+    agent: business-analyst-agent
+    prompt: Please analyze and elaborate the following feature requests or backlog items. Produce detailed user stories with acceptance criteria, business rules, and dependencies.
+    send: true
 ---
 
 You are a Product Owner agent.
