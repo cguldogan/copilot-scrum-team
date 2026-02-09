@@ -109,6 +109,121 @@ Reusable prompt files for common Scrum ceremonies and workflows. Each prompt is 
 | **QA Report (Backend)** | Backend QA with endpoint-level results | Backend QA |
 | **QA Report (Frontend)** | Frontend QA with a11y & responsive quick pass | Frontend QA |
 
+## Workflows — How to Run Scrum with These Prompts
+
+Below are step-by-step workflows for the most common scenarios. Each step references a prompt you can run directly in Copilot Chat.
+
+---
+
+### 1. Starting a New Project
+
+When you're kicking off a brand-new project and want to go from idea to first sprint:
+
+| Step | Prompt to Use | What You Provide | What You Get |
+|------|--------------|-------------------|--------------|
+| **1** | **Backlog Refinement** | Raw feature ideas, product goals, constraints | Refined user stories with acceptance criteria, sizing, and DoR check |
+| **2** | **Definition of Ready** | The refined stories from step 1 | Readiness checklist — which stories are sprint-ready and what's missing |
+| **3** | **Sprint Planning** | Sprint goal, ready stories, team capacity | Sprint backlog with tasks, dependencies, sequencing, and handoff briefs for Dev/QA/PO |
+| **4** | Start building | Mention `@development-agent-backend` or `@development-agent-frontend` with a task | Code implementation with dev notes and testing instructions |
+
+> **Tip:** You don't need all your ideas perfectly formed. Paste rough bullets into Backlog Refinement and the agent will structure everything for you.
+
+---
+
+### 2. Running a Sprint (Day-to-Day)
+
+Once a sprint is underway, use this daily loop:
+
+| Step | Prompt to Use | When | What You Provide |
+|------|--------------|------|-------------------|
+| **1** | **Daily Scrum** | Every day / session start | What changed since last update, PRs/commits, blockers |
+| **2** | **Dev Status Update** (or Backend/Frontend variant) | After completing work | What you worked on, what's next, blockers |
+| **3** | **QA Report** (or Backend/Frontend variant) | After testing | Scope, build/version, test results |
+| **4** | **Triage** | When bugs surface | Bug reports, logs, repro steps |
+| **5** | **Scope Change** | When priorities shift mid-sprint | The requested change + current sprint status |
+
+**Example flow for a typical day:**
+1. Run **Daily Scrum** to get an updated sprint backlog and surface blockers.
+2. Ask `@development-agent-backend` to implement the next task — it will produce code + dev notes.
+3. Run **QA Report (Backend)** to validate the increment — the QA agent runs tests and reports defects.
+4. If a bug is found, run **Triage** to classify severity and decide on immediate action.
+5. Run **Dev Status Update** to record progress before ending the session.
+
+---
+
+### 3. Handling Bugs and Incidents
+
+When something breaks or a defect is reported:
+
+| Step | Prompt to Use | What Happens |
+|------|--------------|--------------|
+| **1** | **Triage** | Classify severity & priority, identify owners, propose root cause hypotheses and mitigations |
+| **2** | **Scope Change** *(if needed)* | Assess sprint impact, propose trade-offs (what gets dropped to fix the bug), get PO decision |
+| **3** | **Dev Status Update** | Track fix progress with testing instructions for QA |
+| **4** | **QA Report** | Verify the fix, confirm regression coverage |
+
+---
+
+### 4. Closing a Sprint
+
+At the end of a sprint, run these ceremonies in order:
+
+| Step | Prompt to Use | What You Provide | What You Get |
+|------|--------------|-------------------|--------------|
+| **1** | **Sprint Review** | Completed work, PRs, demos, unfinished items | Delivered vs deferred summary, PO acceptance decisions, follow-up stories |
+| **2** | **Retrospective** | Team feedback, what went well/poorly | Keep/Stop/Start analysis, action items with owners and due dates |
+| **3** | **Release Notes** *(if releasing)* | Completed stories, PRs, target version | Stakeholder-ready release notes + deployment checklist + rollback plan |
+
+---
+
+### 5. Backlog Refinement Session
+
+Run this anytime you need to prepare stories for an upcoming sprint:
+
+1. **Backlog Refinement** — Paste raw ideas, feature requests, or tech debt items. The agent produces structured stories with acceptance criteria, sizing, and dependencies.
+2. **Definition of Ready** — Run the DoR check on the refined stories to confirm they're sprint-ready. The agent flags gaps and suggests actions to close them.
+
+> **Tip:** Run refinement regularly (not just before planning) to keep a healthy backlog of ready stories.
+
+---
+
+### 6. Mid-Sprint Scope Change
+
+When a stakeholder requests a change or new urgent work appears:
+
+1. **Scope Change** — Provide the requested change and current sprint status. The agent assesses impact, proposes 2–4 options with trade-offs, and recommends one.
+2. **Daily Scrum** — After the decision, run a standup to update the sprint backlog and communicate changes.
+
+---
+
+### 7. Preparing a Release
+
+When you're ready to ship:
+
+1. **QA Report** — Final validation pass across backend and frontend.
+2. **Sprint Review** — Get PO sign-off on delivered increments.
+3. **Release Notes** — Generate stakeholder-facing notes, deployment checklist, and rollback plan.
+
+---
+
+### Quick Reference: Which Prompt for What?
+
+| I want to… | Use this prompt |
+|-------------|----------------|
+| Turn raw ideas into user stories | **Backlog Refinement** |
+| Check if stories are ready for a sprint | **Definition of Ready** |
+| Plan a sprint | **Sprint Planning** |
+| Run a daily standup | **Daily Scrum** |
+| Report dev progress | **Dev Status Update** |
+| Report QA results | **QA Report** |
+| Triage a bug or incident | **Triage** |
+| Handle a mid-sprint priority change | **Scope Change** |
+| Close out a sprint | **Sprint Review** |
+| Reflect and improve | **Retrospective** |
+| Prepare release documentation | **Release Notes** |
+
+---
+
 ## Getting Started
 
 ### Prerequisites
