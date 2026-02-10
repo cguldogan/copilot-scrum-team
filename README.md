@@ -1,23 +1,23 @@
 # Copilot Scrum Team
 
-A complete **Scrum team powered by GitHub Copilot custom agents and reusable prompts**. This project provides a set of specialized AI agents that mirror real Scrum roles — Scrum Master, Product Owner, Backend Developer, Frontend Developer, and QA — along with prompt templates for every major Scrum ceremony and workflow.
+A complete **Scrum team powered by GitHub Copilot custom agents and reusable prompts**. This project provides a set of specialized AI agents that mirror real Scrum roles — Scrum Master, Product Owner, Business Analyst, Backend Developer, Frontend Developer, and QA — along with prompt templates for every major Scrum ceremony and workflow.
 
 Drop these files into any repository and get a fully coordinated AI Scrum team inside VS Code.
 
 ## Overview
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                   Scrum Master Agent                    │
-│            (coordination + sprint artifacts)            │
-├──────────┬──────────┬──────────┬──────────┬─────────────┤
-│ Product  │ Backend  │ Frontend │ Backend  │  Frontend   │
-│  Owner   │   Dev    │   Dev    │   QA     │    QA       │
-│  Agent   │  Agent   │  Agent   │  Agent   │   Agent     │
-└──────────┴──────────┴──────────┴──────────┴─────────────┘
+┌───────────────────────────────────────────────────────────────────────┐
+│                         Scrum Master Agent                          │
+│                  (coordination + sprint artifacts)                   │
+├──────────┬──────────┬──────────┬──────────┬──────────┬───────────────┤
+│ Product  │ Business │ Backend  │ Frontend │ Backend  │   Frontend    │
+│  Owner   │ Analyst  │   Dev    │   Dev    │   QA     │     QA        │
+│  Agent   │  Agent   │  Agent   │  Agent   │  Agent   │    Agent      │
+└──────────┴──────────┴──────────┴──────────┴──────────┴───────────────┘
 ```
 
-Agents hand off work to each other automatically — the Scrum Master coordinates, Dev agents implement, QA agents validate, and the Product Owner accepts or rejects increments.
+Agents hand off work to each other automatically — the Scrum Master coordinates, the Business Analyst elaborates requirements, Dev agents implement, QA agents validate, and the Product Owner accepts or rejects increments.
 
 ## Repository Structure
 
@@ -26,6 +26,7 @@ Agents hand off work to each other automatically — the Scrum Master coordinate
 ├── agents/
 │   ├── scrum-master-agent.agent.md  # Scrum Master & Delivery Coordinator
 │   ├── product-owner-agent.agent.md # Product Owner (priorities + acceptance)
+│   ├── business-analyst-agent.agent.md  # Business Analyst (requirements + analysis)
 │   ├── development-agent-backend.agent.md   # Backend Developer
 │   ├── development-agent-frontend.agent.md  # Frontend Developer
 │   ├── qa-agent.agent.md            # Backend QA
@@ -53,15 +54,21 @@ Agents hand off work to each other automatically — the Scrum Master coordinate
 
 ### Scrum Master Agent
 
-The central coordinator. Facilitates all Scrum ceremonies, maintains sprint artifacts (goal, backlog, progress snapshots, blockers), and orchestrates handoffs between Dev, QA, and PO agents.
+The central coordinator. Facilitates all Scrum ceremonies, maintains sprint artifacts (goal, backlog, progress snapshots, blockers), and orchestrates handoffs between Dev, QA, BA, and PO agents.
 
-**Handoffs to:** Backend Dev, Frontend Dev, Backend QA, Frontend QA, Product Owner
+**Handoffs to:** Backend Dev, Frontend Dev, Backend QA, Frontend QA, Business Analyst, Product Owner
 
 ### Product Owner Agent
 
 Clarifies requirements, prioritizes the backlog, writes acceptance criteria, and accepts or rejects sprint increments. Routes decisions back to the Scrum Master for coordination.
 
-**Handoffs to:** Scrum Master
+**Handoffs to:** Scrum Master, Business Analyst
+
+### Business Analyst Agent
+
+Analyzes and elaborates requirements, maps business processes, writes detailed user stories with acceptance criteria, and identifies gaps and dependencies. Bridges the gap between stakeholder needs and development-ready specifications.
+
+**Handoffs to:** Scrum Master, Product Owner
 
 ### Backend Development Agent
 

@@ -1,6 +1,6 @@
 ---
 name: scrum-master-agent
-description: This custom agent acts as a Scrum Master and Delivery Coordinator, running Scrum ceremonies, tracking progress, and orchestrating handoffs across Dev/QA/PO.
+description: This custom agent acts as a Scrum Master and Delivery Coordinator, running Scrum ceremonies, tracking progress, and orchestrating handoffs across Dev/QA/BA/PO.
 model: Auto (copilot)
 argument-hint: Provide sprint goal, backlog items, or current progress. I will run Scrum ceremonies, track work, and coordinate handoffs.
 handoffs:
@@ -19,6 +19,10 @@ handoffs:
   - label: Frontend QA
     agent: qa-agent-fe
     prompt: Execute frontend QA for the sprint increment. Return Passed/Failed/Blocked, defects with repro steps, and a Progress Snapshot (Done/Next/Left/Blockers).
+    send: true
+  - label: Requirements Analysis
+    agent: business-analyst-agent
+    prompt: Analyze and elaborate requirements for the provided feature requests or backlog items. Produce detailed user stories with acceptance criteria, business rules, dependencies, and process flows.
     send: true
   - label: Product Owner Review
     agent: product-owner-agent
