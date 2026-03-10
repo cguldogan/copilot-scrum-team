@@ -23,14 +23,15 @@ Agents hand off work to each other automatically — the Scrum Master coordinate
 
 ```
 ├── copilot-instructions.md          # Global working agreement for all agents
-├── agents/
-│   ├── scrum-master-agent.agent.md  # Scrum Master & Delivery Coordinator
-│   ├── product-owner-agent.agent.md # Product Owner (priorities + acceptance)
-│   ├── business-analyst-agent.agent.md  # Business Analyst (requirements + analysis)
-│   ├── development-agent-backend.agent.md   # Backend Developer
-│   ├── development-agent-frontend.agent.md  # Frontend Developer
-│   ├── qa-agent.agent.md            # Backend QA
-│   └── qa-agent-fe.agent.md         # Frontend QA
+├── .github/
+│   └── agents/
+│       ├── scrum-master-agent.agent.md  # Scrum Master & Delivery Coordinator
+│       ├── product-owner-agent.agent.md # Product Owner (priorities + acceptance)
+│       ├── business-analyst-agent.agent.md  # Business Analyst (requirements + analysis)
+│       ├── development-agent-backend.agent.md   # Backend Developer
+│       ├── development-agent-frontend.agent.md  # Frontend Developer
+│       ├── qa-agent.agent.md            # Backend QA
+│       └── qa-agent-fe.agent.md         # Frontend QA
 ├── prompts/
 │   ├── sprint-planning.prompt.md    # Sprint Planning ceremony
 │   ├── daily-scrum.prompt.md        # Daily Scrum / standup
@@ -247,7 +248,7 @@ When you're ready to ship:
 
 2. **Copy into your project** (optional — if you want to add it to an existing repo):
    ```bash
-   cp -r copilot-scrum-team/agents/ your-project/.github/agents/
+   cp -r copilot-scrum-team/.github/agents/ your-project/.github/agents/
    cp -r copilot-scrum-team/prompts/ your-project/.github/prompts/
    cp copilot-scrum-team/copilot-instructions.md your-project/.github/copilot-instructions.md
    ```
@@ -279,7 +280,7 @@ Use the Triage prompt with bug reports, logs, or incident summaries. The agent w
 ## Customization
 
 - **Edit `copilot-instructions.md`** to change the global working agreement, Definition of Done, or reporting format.
-- **Edit agent files** in `agents/` to adjust individual agent behavior, models, or handoff targets.
+- **Edit agent files** in `.github/agents/` to adjust individual agent behavior, models, or handoff targets.
 - **Edit or add prompt files** in `prompts/` to create new ceremony templates or adjust existing ones.
 - **Change models** — each agent specifies its model in the YAML frontmatter. Adjust to your preference.
 
